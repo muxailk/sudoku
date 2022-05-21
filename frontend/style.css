@@ -1,0 +1,67 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Bal";
+}
+
+body, main, .container, .box, .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main {
+    width: 500px;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 75px;
+}
+
+.container {
+    width: 100%;
+    font-size: 45px;
+}
+
+.box, .cell {
+    width: 33%;
+}
+
+.box:nth-child(3n + 1), .box:nth-child(3n + 3) {
+    border: 3px solid #344861;
+    border-bottom: none;
+}
+
+.box:nth-child(3n + 2) {
+    border-top: 3px solid #344861;
+}
+
+.box:nth-child(n + 7) {
+    border-bottom: 3px solid #344861;
+}
+
+.cell:nth-child(3n + 2) {
+    border-left: 1px solid #bec6d4;
+    border-right: 1px solid #bec6d4;
+}
+
+.cell {
+    border-top: 1px solid #bec6d4;
+    height: 65px;
+}
+
+.cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
+    border-top: none;
+}
+
+@font-face {
+    font-family: "Bal";
+    src: url('/frontend/Bal.ttf');
+}
