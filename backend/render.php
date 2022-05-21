@@ -13,7 +13,13 @@ function render($matrix) {
 
                 // For every element in a row
                 for ($l = 0; $l < 3; $l++) {
-                    echo '<div class="cell">', $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
+                    if ($j === 1) {
+                        echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l + 2 . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
+                    } else
+                    if ($j === 2) {
+                        echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l + 6 . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
+                    } else
+                    echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
                 }
                 
             }
