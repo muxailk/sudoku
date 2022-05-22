@@ -11,17 +11,21 @@ table.addEventListener('click', function(event) {
 
     if (selectedCell && selectedBox && selectedColumn && selectedRow) {
 
+        // Hide cell and box
         selectedCell.classList.remove('selected');
         selectedBox.classList.remove('active');
 
+        // Hide column
         [...selectedColumn].forEach(cell => {
             cell.classList.remove('active')
         });
     
+        // Hide row
         [...selectedRow].forEach(cell => {
             cell.classList.remove('active')
         });
 
+        // Hide the same values
         [...cells].forEach(cell => {
             if (cell.textContent === selectedCell.textContent) {
                 cell.classList.remove('same')

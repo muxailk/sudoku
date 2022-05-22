@@ -13,13 +13,8 @@ function render($matrix) {
 
                 // For every element in a row
                 for ($l = 0; $l < 3; $l++) {
-                    if ($j === 1) {
-                        echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l + 3 . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
-                    } else
-                    if ($j === 2) {
-                        echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l + 6 . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
-                    } else
-                    echo "<div class='cell' data-row='". $i + $k . "' data-column='". $l . "'>", $matrix[$i + $k][$j][$l] !== 0 ? $matrix[$i + $k][$j][$l] : "", '</div>';
+
+                    printCell($j, $i + $k, $l, $matrix[$i + $k][$j][$l]);
                 }
                 
             }
@@ -29,6 +24,12 @@ function render($matrix) {
 
     }
 
+}
+
+function printCell($j, $row, $column, $value) {
+    echo $value === 0
+        ? "<div class='cell' data-row='". $row . "' data-column='". $column + $j * 3 . "' contenteditable ></div>"
+        : "<div class='cell' data-row='". $row . "' data-column='". $column + $j * 3 . "'>$value</div>";
 }
 
 ?>

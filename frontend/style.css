@@ -58,6 +58,9 @@ main {
 .cell {
     border-top: 1px solid #bec6d4;
     height: 65px;
+    outline: none;
+    transition: .2s all ease-in-out;
+    caret-color: transparent;
 }
 
 .cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
