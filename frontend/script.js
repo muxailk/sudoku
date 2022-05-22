@@ -1,5 +1,6 @@
 const table = document.querySelector('.container');
 const boxes = document.querySelectorAll('.box');
+const cells = document.querySelectorAll('.cell')
 let selectedCell, selectedBox, selectedColumn, selectedRow
 
 
@@ -21,7 +22,21 @@ table.addEventListener('click', function(event) {
             cell.classList.remove('active')
         });
 
+        [...cells].forEach(cell => {
+            if (cell.textContent === selectedCell.textContent) {
+                cell.classList.remove('same')
+            }
+        });
+
     };
+    
+    // Paint cell
+    selectedCell = event.target;
+    selectedCell.classList.add('selected');
+    
+    // Paint box
+    selectedBox = selectedCell.closest('.box');
+    selectedBox.classList.add('active');
 
     // Paint column
     selectedColumn = document.querySelectorAll('.cell[data-column="' + column + '"]');
@@ -35,11 +50,11 @@ table.addEventListener('click', function(event) {
         cell.classList.add('active')
     });
 
-    // Paint cell
-    selectedCell = event.target;
-    selectedCell.classList.add('selected');
-    
-    // Paint box
-    selectedBox = selectedCell.closest('.box');
-    selectedBox.classList.add('active');
+    // Show the same values
+    [...cells].forEach(cell => {
+        if ((cell.textContent === selectedCell.textContent) && (cell.textContent !== "")) {
+            cell.classList.add('same')
+        }
+    });
+
 })

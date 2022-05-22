@@ -72,6 +72,10 @@ main {
     background-color: #e2ebf3;
 }
 
+.same {
+    background-color: #c3d7ea;
+}
+
 @font-face {
     font-family: "Bal";
     src: url('/frontend/Bal.ttf');
