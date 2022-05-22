@@ -8,27 +8,38 @@ table.addEventListener('click', function(event) {
     
     const { column, row } = event.target.dataset;
 
-    if (selectedCell && selectedBox){
-        selectedCell.classList.remove('selected')
-        selectedBox.classList.remove('active')
+    if (selectedCell && selectedBox && selectedColumn && selectedRow) {
+
+        selectedCell.classList.remove('selected');
+        selectedBox.classList.remove('active');
+
+        [...selectedColumn].forEach(cell => {
+            cell.classList.remove('active')
+        });
+    
+        [...selectedRow].forEach(cell => {
+            cell.classList.remove('active')
+        });
+
     };
 
-    // Paint column and row
-    [...boxes].forEach((box, index) => {
-        [...box.children].forEach((child, childIndex) => {
-            const { column: childColumn, row: childRow } = child.dataset
-
-            if (childColumn === column || childRow === row) {
-                child.classList.add('active');
-            }
-        })
+    // Paint column
+    selectedColumn = document.querySelectorAll('.cell[data-column="' + column + '"]');
+    [...selectedColumn].forEach(cell => {
+        cell.classList.add('active')
     });
 
-    // Paint selected cell
+    // Paint row
+    selectedRow = document.querySelectorAll('.cell[data-row="' + row + '"]');
+    [...selectedRow].forEach(cell => {
+        cell.classList.add('active')
+    });
+
+    // Paint cell
     selectedCell = event.target;
     selectedCell.classList.add('selected');
     
-    // Paint selected box
+    // Paint box
     selectedBox = selectedCell.closest('.box');
     selectedBox.classList.add('active');
 })
