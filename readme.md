@@ -1,1 +1,1 @@
-# My Sudoku Game
+# Sudoku Game

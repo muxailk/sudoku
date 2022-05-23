@@ -1,6 +1,7 @@
 const table = document.querySelector('.container');
 const boxes = document.querySelectorAll('.box');
 const cells = document.querySelectorAll('.cell')
+
 let selectedCell, selectedBox, selectedColumn, selectedRow
 
 
