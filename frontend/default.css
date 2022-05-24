@@ -1,0 +1,43 @@
+.title {
+    text-shadow: 12px 11px 15px grey;
+}
+
+.box:nth-child(3n + 1), .box:nth-child(3n + 3) {
+    border: 3px solid #344861;  
+    border-bottom: none;
+}
+
+.box:nth-child(3n + 2) {
+    border-top: 3px solid #344861;
+}
+
+.box:nth-child(n + 7) {
+    border-bottom: 3px solid #344861;
+}
+
+.cell:nth-child(3n + 2) {
+    border-left: 1px solid #bec6d4;
+    border-right: 1px solid #bec6d4;
+}
+
+.cell {
+    border-top: 1px solid #bec6d4;
+    text-shadow: 2px 2px grey;
+}
+
+.cell[contenteditable] {
+    color: rgb(175, 175, 175);
+}
+
+.selected {
+    background-color: #bbdefb !important;
+    /* box-shadow: inset 0px 0px 18px 5px #857fe1; */
+}
+
+.active {
+    background-color: #e2ebf3;
+}
+
+.same {
+    background-color: #c3d7ea;
+}

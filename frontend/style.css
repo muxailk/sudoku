@@ -24,7 +24,6 @@ main {
 .title {
     font-size: 75px;
     line-height: 150px;
-    text-shadow: 12px 11px 15px grey;;
 }
 
 .container {
@@ -39,51 +38,18 @@ main {
 }
 
 .box:nth-child(3n + 1), .box:nth-child(3n + 3) {
-    border: 3px solid #344861;
     border-bottom: none;
 }
 
-.box:nth-child(3n + 2) {
-    border-top: 3px solid #344861;
-}
-
-.box:nth-child(n + 7) {
-    border-bottom: 3px solid #344861;
-}
-
-.cell:nth-child(3n + 2) {
-    border-left: 1px solid #bec6d4;
-    border-right: 1px solid #bec6d4;
-}
-
 .cell {
-    border-top: 1px solid #bec6d4;
     height: 65px;
     outline: none;
     transition: .2s all ease-in-out;
     caret-color: transparent;
-    text-shadow: 2px 2px grey;
-}
-
-.cell[contenteditable] {
-    color: rgb(44, 53, 159);
 }
 
 .cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
     border-top: none;
-}
-
-.selected {
-    background-color: #bbdefb !important;
-    /* box-shadow: inset 0px 0px 18px 5px #857fe1; */
-}
-
-.active {
-    background-color: #e2ebf3;
-}
-
-.same {
-    background-color: #c3d7ea;
 }
 
 @font-face {
