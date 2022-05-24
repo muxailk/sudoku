@@ -63,3 +63,12 @@ table.addEventListener('click', function(event) {
     });
 
 })
+
+
+table.addEventListener('keypress', function(e) {
+    e.preventDefault();
+
+    if (e.which > 48 && e.which < 58) {
+        e.target.textContent = String.fromCharCode(e.which)
+    }
+});
