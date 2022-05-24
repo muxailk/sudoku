@@ -9,7 +9,7 @@ body {
     font-family: "Bal";
 }
 
-body, main, .container, .box, .cell {
+body, main, .template, .container, .box, .cell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,8 +17,7 @@ body, main, .container, .box, .cell {
 }
 
 main {
-    width: 600px;
-    flex-direction: column;
+    width: max(calc(100% / 3), 600px);
 }
 
 .title {
@@ -33,7 +32,7 @@ main {
     user-select: none;
 }
 
-.box, .cell {
+.box {
     width: calc(100% / 3);
 }
 
@@ -43,9 +42,11 @@ main {
 
 .cell {
     height: 65px;
+    width: calc(100% / 3);
     outline: none;
     transition: .2s all ease-in-out;
     caret-color: transparent;
+    flex: 0 0 calc(100%/3);
 }
 
 .cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
