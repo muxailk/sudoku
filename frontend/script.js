@@ -1,4 +1,4 @@
-const table = document.querySelector('.container');
+const table = document.querySelector('.template__container');
 const boxes = document.querySelectorAll('.box');
 const cells = document.querySelectorAll('.cell')
 

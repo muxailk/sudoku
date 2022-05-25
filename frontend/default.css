@@ -1,5 +1,5 @@
 .title {
-    text-shadow: 12px 11px 15px grey;
+    text-shadow: 12px 11px 15px #3e90f7;
 }
 
 .box:nth-child(3n + 1), .box:nth-child(3n + 3) {
@@ -40,4 +40,8 @@
 
 .same {
     background-color: #c3d7ea;
+}
+
+.interface__button {
+    text-shadow: 8px 9px 10px #3e90f7;
 }

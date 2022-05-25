@@ -9,14 +9,14 @@ body {
     font-family: "Bal";
 }
 
-body, main, .template, .container, .box, .cell {
+body, main, .template, .template__container, .interface, .interface__button, .box, .cell {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-main {
+.template {
     width: 585px;
 }
 
@@ -25,7 +25,7 @@ main {
     line-height: 150px;
 }
 
-.container {
+.template__container {
     height: 598px;
     font-size: 45px;
     cursor: default;
@@ -52,6 +52,19 @@ main {
 .cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
     border-top: none;
 }
+
+.interface {
+    width: 100%;
+}
+
+.interface__button {
+    font-size: 40px;
+    cursor: pointer;
+    width: calc(100% / 3);
+    line-height: 75px;
+}
+
+
 
 @font-face {
     font-family: "Bal";

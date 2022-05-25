@@ -50,13 +50,17 @@ foreach ($template as $value) {
     <main>
         <div class="template">
             <h1 class="title">Sudoku Game</h1>
-            <div class="container">
+            <div class="template__container">
 
                 <?php render($matrix) ?>
 
             </div>
+            <div class="interface">
+                <div class="interface__button" id="clear">Clear</div>
+                <div class="interface__button" id="new">New game</div>
+                <div class="interface__button" id="check">Check</div>
+            </div>
         </div>
-        <form action=""></form>
     </main>
     <script src="/frontend/script.js"></script>
 </body>
