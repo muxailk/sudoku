@@ -1,5 +1,5 @@
 .title {
-    text-shadow: 12px 11px 15px #3e90f7;
+    text-shadow: #3e90f7 1px 1px, #3e90f7 2px 2px, #3e90f6 3px 3px, #3e90f7 4px 4px, #3e90f7 5px 5px;
 }
 
 .box:nth-child(3n + 1), .box:nth-child(3n + 3) {
@@ -43,5 +43,5 @@
 }
 
 .interface__button {
-    text-shadow: 8px 9px 10px #3e90f7;
+    text-shadow: #3e90f7 1px 1px, #3e90f7 2px 2px, #3e90f6 3px 3px;
 }

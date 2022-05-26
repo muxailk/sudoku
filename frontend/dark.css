@@ -4,7 +4,7 @@ body {
 
 .title {
     color: #ebf6ff;
-    text-shadow: 12px 11px 15px black;
+    text-shadow: black 1px 1px, black 2px 2px, black 3px 3px, black 4px 4px, black 5px 5px;
 }
 
 .box:nth-child(3n + 1), .box:nth-child(3n + 3) {
@@ -51,4 +51,9 @@ body {
 
 .same {
     background-color: #8b9299;
+}
+
+.interface__button {
+    text-shadow: black 1px 1px, black 2px 2px, black 3px 3px;
+    color: #ebf6ff;
 }

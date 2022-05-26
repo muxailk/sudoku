@@ -4,16 +4,17 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    font-family: "Bal";
-}
-
 body, main, .template, .template__container, .interface, .interface__button, .box, .cell {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+
+body {
+    height: 100vh;
+    font-family: "Bal";
 }
 
 .template {
@@ -23,10 +24,11 @@ body, main, .template, .template__container, .interface, .interface__button, .bo
 .title {
     font-size: 75px;
     line-height: 150px;
+    letter-spacing: 5px;
 }
 
 .template__container {
-    height: 598px;
+    height: 597px;
     font-size: 45px;
     cursor: default;
     user-select: none;
@@ -45,8 +47,9 @@ body, main, .template, .template__container, .interface, .interface__button, .bo
     width: calc(100% / 3);
     outline: none;
     transition: .2s all ease-in-out;
+    opacity: 1;
     caret-color: transparent;
-    flex: 0 0 calc(100%/3);
+    flex: 0 0 calc(100% / 3);
 }
 
 .cell:nth-child(9n + 1), .cell:nth-child(9n + 2), .cell:nth-child(9n + 3) {
