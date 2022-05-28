@@ -18,7 +18,7 @@ body {
 }
 
 .template {
-    width: 585px;
+    width: 584px;
 }
 
 .title {
@@ -65,6 +65,7 @@ body {
     cursor: pointer;
     width: calc(100% / 3);
     line-height: 75px;
+    font-family: "Bal";
 }
 
 

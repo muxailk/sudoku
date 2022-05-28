@@ -41,6 +41,7 @@ foreach ($template as $value) {
     }
     
     ?>
+    
     <link rel="icon" href="/frontend/favicon-32x32.png" type="image/x-icon">
     <title>Sudoku Online</title>
 </head>
@@ -48,13 +49,13 @@ foreach ($template as $value) {
 <body>
     <main>
         <div class="template">
-            <h1 class="title anim">Sudoku Game</h1>
-            <div class="template__container anim">
+            <h1 class="title">Sudoku Game</h1>
+            <div class="template__container">
 
                 <?php render($matrix) ?>
 
             </div>
-            <div class="interface anim">
+            <div class="interface">
                 <div class="interface__button" id="clear">Clear</div>
                 <div class="interface__button" id="new">New game</div>
                 <div class="interface__button" id="check">Check</div>

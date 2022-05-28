@@ -1,6 +1,7 @@
 <?php
 
 function render($matrix) {
+
     // For every 3 rows
     for ($i = 0; $i < 9; $i += 3) {
 
@@ -15,6 +16,7 @@ function render($matrix) {
                 for ($l = 0; $l < 3; $l++) {
 
                     printCell($j, $i + $k, $l, $matrix[$i + $k][$j][$l]);
+                    
                 }
                 
             }

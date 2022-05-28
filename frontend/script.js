@@ -90,3 +90,21 @@ clear.addEventListener('click', function(e) {
     })
 
 });
+
+check.addEventListener('click', function() {
+
+    // Form data
+
+    let output = []
+
+    for (let i = 0; i < 81; i += 9) {
+        let arr = []
+
+        for (let j = 0; j < 9; j++) {
+            arr[j] = cells[i + j].textContent
+        }
+        
+        output.push(arr)
+    }
+
+})
