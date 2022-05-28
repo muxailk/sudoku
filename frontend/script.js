@@ -36,14 +36,71 @@ table.addEventListener('click', function(event) {
         cell.classList.add('active')
     });
 
-    // Show the same values
-    [...cells].forEach(cell => {
-        if ((cell.textContent === selectedCell.textContent) && (cell.textContent !== "")) {
-            cell.classList.add('same')
-        }
-    });
+    // Paint same
+    showSame();
 
 })
+
+
+table.addEventListener('keypress', function(e) {
+
+    // Insert only numbers from 1 to 9
+    e.preventDefault();
+    if (e.which > 48 && e.which < 58) {
+        e.target.textContent = String.fromCharCode(e.which)
+        selectedCell = e.target
+        removeSame()
+        showSame()
+    }
+    
+});
+
+
+clear.addEventListener('click', function(e) {
+
+    // Clear user inserted numbers
+    cells.forEach(cell => {
+        if (cell.hasAttribute('contenteditable')) { 
+            cell.textContent = ''
+            hide()
+        }
+    })
+
+});
+
+
+check.addEventListener('click', function() {
+
+    // Send sudoku to server and check if it is solved
+    
+    // Form data
+    let output = []
+
+    for (let i = 0; i < 81; i += 9) {
+        let arr = []
+
+        for (let j = 0; j < 9; j++) {
+            arr[j] = cells[i + j].textContent
+        }
+        
+        output.push(arr)
+    }
+
+    // Send data
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "check.php");
+    xhr.send(JSON.stringify(output));
+
+    xhr.onload = () => {
+        
+        if (xhr.response) {
+
+        }
+    }
+
+})
+
+
 
 function hide() {
 
@@ -70,49 +127,22 @@ function hide() {
 
 }
 
+function showSame() {
 
-table.addEventListener('keypress', function(e) {
-
-    e.preventDefault();
-    if (e.which > 48 && e.which < 58) {
-        e.target.textContent = String.fromCharCode(e.which)
-    }
-    
-});
-
-clear.addEventListener('click', function(e) {
-
-    cells.forEach(cell => {
-        if (cell.hasAttribute('contenteditable')) { 
-            cell.textContent = ''
-            hide()
+    // Show the same values
+    [...cells].forEach(cell => {
+        if ((cell.textContent === selectedCell.textContent) && (cell.textContent !== "")) {
+            cell.classList.add('same')
         }
-    })
+    });
+}
 
-});
+function removeSame() {
 
-check.addEventListener('click', function() {
-
-    // Form data
-
-    let output = []
-
-    for (let i = 0; i < 81; i += 9) {
-        let arr = []
-
-        for (let j = 0; j < 9; j++) {
-            arr[j] = cells[i + j].textContent
+    // Remove the same values
+    [...cells].forEach(cell => {
+        if (cell.classList.contains('same')) {
+            cell.classList.remove('same')
         }
-        
-        output.push(arr)
-    }
-
-    // Send data
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "check.php");
-    xhr.send(JSON.stringify(output));
-
-    xhr.onload = () => console.log(xhr.response);
-
-})
+    });
+}

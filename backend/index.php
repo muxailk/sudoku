@@ -32,16 +32,16 @@ foreach ($template as $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/frontend/style.css">
 
-    <?php 
-    
+    <?php
+
     if (isset($_COOKIE['theme']) && $_COOKIE['theme'] == "dark") {
         echo "<link rel='stylesheet' href='/frontend/dark.css'>";
     } else {
         echo "<link rel='stylesheet' href='/frontend/default.css'>";
     }
-    
+
     ?>
-    
+
     <link rel="icon" href="/frontend/favicon-32x32.png" type="image/x-icon">
     <title>Sudoku Online</title>
 </head>

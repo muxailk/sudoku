@@ -1,7 +1,7 @@
 <?php
 
-function render($matrix) {
-
+function render($matrix)
+{
     // For every 3 rows
     for ($i = 0; $i < 9; $i += 3) {
 
@@ -16,22 +16,17 @@ function render($matrix) {
                 for ($l = 0; $l < 3; $l++) {
 
                     printCell($j, $i + $k, $l, $matrix[$i + $k][$j][$l]);
-                    
                 }
-                
             }
 
             echo '</div>';
         }
-
     }
-
 }
 
-function printCell($j, $row, $column, $value) {
+function printCell($j, $row, $column, $value)
+{
     echo $value === 0
-        ? "<div class='cell' data-row='". $row . "' data-column='". $column + $j * 3 . "' contenteditable ></div>"
-        : "<div class='cell' data-row='". $row . "' data-column='". $column + $j * 3 . "'>$value</div>";
+        ? "<div class='cell' data-row='" . $row . "' data-column='" . $column + $j * 3 . "' contenteditable ></div>"
+        : "<div class='cell' data-row='" . $row . "' data-column='" . $column + $j * 3 . "'>$value</div>";
 }
-
-?>
