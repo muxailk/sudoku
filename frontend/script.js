@@ -107,4 +107,12 @@ check.addEventListener('click', function() {
         output.push(arr)
     }
 
+    // Send data
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "check.php");
+    xhr.send(JSON.stringify(output));
+
+    xhr.onload = () => console.log(xhr.response);
+
 })
