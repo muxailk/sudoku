@@ -1,0 +1,14 @@
+{
+    "name": "muxail/sudoku",
+    "description": "Sudoku game",
+    "type": "project",
+    "require": {
+        "xeeeveee/sudoku": "^0.2.1"
+    },
+    "authors": [
+        {
+            "name": "muxailk",
+            "email": "muxail1327@mail.ru"
+        }
+    ]
+}
