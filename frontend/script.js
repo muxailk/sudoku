@@ -61,6 +61,14 @@ table.addEventListener('keypress', function(e) {
 
         if (filledRow) setRowAnimation()
         
+        // Column is filled in
+        let filledColumn = true;
+        
+        [...selectedColumn].forEach(cell => {
+            if (cell.textContent === '') filledColumn = false; 
+        });
+
+        if (filledColumn) setColumnAnimation()
     }
     
 });
@@ -172,3 +180,17 @@ function setRowAnimation() {
     });
 }
 
+function setColumnAnimation() {
+
+    [...selectedColumn].forEach((cell, index) => {
+        setTimeout(() => {
+            cell.classList.add('filled')
+        }, 120 * index)
+    });
+
+    [...selectedColumn].forEach((cell, index) => {
+        setTimeout(() => {
+            cell.classList.remove('filled')
+        }, 120 * index + 500)
+    });
+}
