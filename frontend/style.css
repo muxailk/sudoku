@@ -69,17 +69,17 @@ body {
 }
 
 .filled {
-    animation: animate .5s linear;
+    animation: animate .3s linear;
 }
 
 @keyframes animate {
-    25% {
+    0% {
         background-color: #bbdefb;
     }
-    50% {
+    20%, 80% {
         background-color: #c3d7ea;
     }
-    75% {
+    100% {
         background-color: #bbdefb;
     }
 }

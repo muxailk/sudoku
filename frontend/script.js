@@ -68,7 +68,22 @@ table.addEventListener('keypress', function(e) {
             if (cell.textContent === '') filledColumn = false; 
         });
 
-        if (filledColumn) setColumnAnimation()
+        if (filledColumn) setColumnAnimation();
+
+        // Box is filled in
+
+        let boxIndex = [...boxes].findIndex(value => {
+            return value === selectedBox
+        });
+
+        let filledBox = true
+
+        for (let i = 0; i < 9; i++) {
+            if (cells[boxIndex * 9 + i].textContent === '') filledBox = false;
+        }
+
+        if (filledBox) setBoxAnimation(boxIndex);
+        
     }
     
 });
@@ -119,7 +134,6 @@ check.addEventListener('click', function() {
 })
 
 
-
 function hide() {
 
     // Hide cell and box
@@ -145,6 +159,7 @@ function hide() {
 
 }
 
+
 function showSame() {
 
     // Show the same values
@@ -155,6 +170,7 @@ function showSame() {
     });
 }
 
+
 function removeSame() {
 
     // Remove the same values
@@ -164,6 +180,7 @@ function removeSame() {
         }
     });
 }
+
 
 function setRowAnimation() {
 
@@ -180,6 +197,7 @@ function setRowAnimation() {
     });
 }
 
+
 function setColumnAnimation() {
 
     [...selectedColumn].forEach((cell, index) => {
@@ -194,3 +212,19 @@ function setColumnAnimation() {
         }, 120 * index + 500)
     });
 }
+
+
+function setBoxAnimation(index) {
+
+    for (let m = 0; m < 9; m++) {
+        setTimeout(() => {
+            cells[index * 9 + m].classList.add('filled')
+        }, 120 * m);
+    }
+
+    for (let m = 0; m < 9; m++) {
+        setTimeout(() => {
+            cells[index * 9 + m].classList.remove('filled')
+        }, 120 * m + 500);
+    }
+} 
