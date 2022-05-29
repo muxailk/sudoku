@@ -22,4 +22,26 @@ for ($i = 0; $i < 9; $i++) {
 }
 
 
+for ($m = 0; $m < 3; $m++) {
+    $output[] = array_chunk($array[0], 9)[$m];
+    $output[] = array_chunk($array[1], 9)[$m];
+    $output[] = array_chunk($array[2], 9)[$m];
+}
 
+
+// Replace "" with 0
+
+foreach ($output as &$values) {
+
+    foreach ($values as &$value) {
+
+        if ($value == '') $value = 0;
+    }
+}
+
+
+$puzzle = new Xeeeveee\Sudoku\Puzzle($output);
+
+if ($puzzle->isSolved()) {
+    echo true;
+}

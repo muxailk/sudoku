@@ -68,6 +68,21 @@ body {
     font-family: "Bal";
 }
 
+.filled {
+    animation: animate .5s linear;
+}
+
+@keyframes animate {
+    25% {
+        background-color: #bbdefb;
+    }
+    50% {
+        background-color: #c3d7ea;
+    }
+    75% {
+        background-color: #bbdefb;
+    }
+}
 
 
 @font-face {

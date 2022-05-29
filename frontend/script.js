@@ -49,8 +49,18 @@ table.addEventListener('keypress', function(e) {
     if (e.which > 48 && e.which < 58) {
         e.target.textContent = String.fromCharCode(e.which)
         selectedCell = e.target
-        removeSame()
-        showSame()
+        removeSame();
+        showSame();
+
+        // Row is filled in
+        let filledRow = true;
+
+        [...selectedRow].forEach(cell => {
+            if (cell.textContent === '') filledRow = false; 
+        });
+
+        if (filledRow) setRowAnimation()
+        
     }
     
 });
@@ -146,3 +156,19 @@ function removeSame() {
         }
     });
 }
+
+function setRowAnimation() {
+
+    [...selectedRow].forEach((cell, index) => {
+        setTimeout(() => {
+            cell.classList.add('filled')
+        }, 120 * index)
+    });
+
+    [...selectedRow].forEach((cell, index) => {
+        setTimeout(() => {
+            cell.classList.remove('filled')
+        }, 120 * index + 500)
+    });
+}
+
