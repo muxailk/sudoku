@@ -21,6 +21,10 @@ body {
     width: 584px;
 }
 
+.template__container {
+    width: 100%;
+}
+
 .title {
     font-size: 75px;
     line-height: 150px;
