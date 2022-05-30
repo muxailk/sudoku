@@ -42,6 +42,5 @@ foreach ($output as &$values) {
 
 $puzzle = new Xeeeveee\Sudoku\Puzzle($output);
 
-if ($puzzle->isSolved()) {
-    echo true;
-}
+$puzzle->solve();
+print_r($output);

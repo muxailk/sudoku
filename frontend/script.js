@@ -46,45 +46,45 @@ table.addEventListener('keypress', function(e) {
 
     // Insert only numbers from 1 to 9
     e.preventDefault();
-    if (e.which > 48 && e.which < 58) {
-        e.target.textContent = String.fromCharCode(e.which)
-        selectedCell = e.target
-        removeSame();
-        showSame();
+    if (e.which < 49 || e.which > 57) return;
 
-        // Row is filled in
-        let filledRow = true;
 
-        [...selectedRow].forEach(cell => {
-            if (cell.textContent === '') filledRow = false; 
-        });
+    e.target.textContent = String.fromCharCode(e.which)
+    selectedCell = e.target
+    removeSame();
+    showSame();
 
-        if (filledRow) setRowAnimation()
-        
-        // Column is filled in
-        let filledColumn = true;
-        
-        [...selectedColumn].forEach(cell => {
-            if (cell.textContent === '') filledColumn = false; 
-        });
+    // Row is filled in
+    let filledRow = true;
 
-        if (filledColumn) setColumnAnimation();
+    [...selectedRow].forEach(cell => {
+        if (cell.textContent === '') filledRow = false; 
+    });
 
-        // Box is filled in
+    if (filledRow) setRowAnimation()
+    
+    // Column is filled in
+    let filledColumn = true;
+    
+    [...selectedColumn].forEach(cell => {
+        if (cell.textContent === '') filledColumn = false; 
+    });
 
-        let boxIndex = [...boxes].findIndex(value => {
-            return value === selectedBox
-        });
+    if (filledColumn) setColumnAnimation();
 
-        let filledBox = true
+    // Box is filled in
+    let boxIndex = [...boxes].findIndex(value => {
+        return value === selectedBox
+    });
 
-        for (let i = 0; i < 9; i++) {
-            if (cells[boxIndex * 9 + i].textContent === '') filledBox = false;
-        }
+    let filledBox = true
 
-        if (filledBox) setBoxAnimation(boxIndex);
-        
+    for (let i = 0; i < 9; i++) {
+        if (cells[boxIndex * 9 + i].textContent === '') filledBox = false;
     }
+
+    if (filledBox) setBoxAnimation(boxIndex);
+        
     
 });
 
@@ -95,10 +95,10 @@ clear.addEventListener('click', function(e) {
     cells.forEach(cell => {
         if (cell.hasAttribute('contenteditable')) { 
             cell.textContent = ''
-            hide()
         }
     })
 
+    hide()
 });
 
 
@@ -126,9 +126,7 @@ check.addEventListener('click', function() {
 
     xhr.onload = () => {
         
-        if (xhr.response) {
-
-        }
+        console.log(xhr.response)
     }
 
 })
@@ -136,25 +134,35 @@ check.addEventListener('click', function() {
 
 function hide() {
 
-    // Hide cell and box
-    selectedCell.classList.remove('selected');
-    selectedBox.classList.remove('active');
+    // // Hide cell and box
+    // selectedCell.classList.remove('selected');
+    // selectedBox.classList.remove('active');
 
-    // Hide column
-    [...selectedColumn].forEach(cell => {
-        cell.classList.remove('active')
-    });
+    // // Hide column
+    // [...selectedColumn].forEach(cell => {
+    //     cell.classList.remove('active')
+    // });
 
-    // Hide row
-    [...selectedRow].forEach(cell => {
-        cell.classList.remove('active')
-    });
+    // // Hide row
+    // [...selectedRow].forEach(cell => {
+    //     cell.classList.remove('active')
+    // });
 
-    // Hide the same values
+    // // Hide the same values
+    // [...cells].forEach(cell => {
+    //     if (cell.textContent === selectedCell.textContent) {
+    //         cell.classList.remove('same')
+    //     }
+    // });
+
     [...cells].forEach(cell => {
-        if (cell.textContent === selectedCell.textContent) {
-            cell.classList.remove('same')
-        }
+        cell.classList.remove('same')
+        cell.classList.remove('active')
+        cell.classList.remove('selected')
+    });
+
+    [...boxes].forEach(cell => {
+        cell.classList.remove('active')
     });
 
 }
