@@ -8,7 +8,7 @@ const check = document.getElementById('check')
 let selectedCell, selectedBox, selectedColumn, selectedRow
 
 
-table.addEventListener('click', function(event) {
+table.addEventListener('click', (event) => {
 
     if (!event.target.classList.contains('cell')) return;
     
@@ -42,7 +42,7 @@ table.addEventListener('click', function(event) {
 })
 
 
-table.addEventListener('keypress', function(e) {
+table.addEventListener('keypress', (e) => {
 
     // Insert only numbers from 1 to 9
     e.preventDefault();
@@ -89,20 +89,22 @@ table.addEventListener('keypress', function(e) {
 });
 
 
-clear.addEventListener('click', function(e) {
+clear.addEventListener('click', () => {
 
     // Clear user inserted numbers
     cells.forEach(cell => {
-        if (cell.hasAttribute('contenteditable')) { 
-            cell.textContent = ''
+        if (cell.hasAttribute('contenteditable')) {
+            cell.textContent = '';
         }
-    })
 
-    hide()
+        cell.classList.remove('error')
+    });
+
+    hide();
 });
 
 
-check.addEventListener('click', function() {
+check.addEventListener('click', () => {
 
     // Send sudoku to server and check if it is solved
     
@@ -137,7 +139,12 @@ check.addEventListener('click', function() {
             body: JSON.stringify(output)
         }
     ).then(resp => resp.text()).then(resp => {
-        if (!resp) showMistakes()
+        if (!resp) {
+            showMistakes()
+        } else {
+            showCorrect()
+            selectedCell.classList.remove('selected')
+        }
     })
 })
 
@@ -249,5 +256,23 @@ function setBoxAnimation(index) {
 
 
 function showMistakes() {
-    console.log('errer')
+    
+    [...cells].forEach(cell => {
+
+        cell.textContent === '' 
+            ? cell.classList.add('error')
+            : cell.classList.remove('error')
+
+        if (cell.classList.contains('selected')) cell.classList.remove('selected')
+
+    }) 
+}
+
+
+function showCorrect() {
+
+    [...cells].forEach(cell => {
+        cell.classList.remove('error')
+        cell.classList.add('correct')
+    })
 }

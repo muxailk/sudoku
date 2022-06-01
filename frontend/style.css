@@ -40,6 +40,7 @@ body {
 
 .box {
     width: calc(100% / 3);
+    transition: .2s background ease-in-out;
 }
 
 .box:nth-child(3n + 1), .box:nth-child(3n + 3) {
@@ -50,7 +51,7 @@ body {
     height: 65px;
     width: calc(100% / 3);
     outline: none;
-    transition: .2s all ease-in-out;
+    transition: .2s background ease-in-out;
     opacity: 1;
     caret-color: transparent;
     flex: 0 0 calc(100% / 3);
@@ -75,6 +76,14 @@ body {
 
 .filled {
     animation: animate .3s linear;
+}
+
+.error {
+    background-color: rgb(243, 88, 88) !important;
+}
+
+.correct {
+    background-color: rgb(51, 245, 17) !important;
 }
 
 @keyframes animate {

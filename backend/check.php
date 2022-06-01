@@ -22,9 +22,11 @@ for ($i = 0; $i < 9; $i++) {
 
 
 for ($m = 0; $m < 3; $m++) {
-    $output[] = array_chunk($array[0], 9)[$m];
-    $output[] = array_chunk($array[1], 9)[$m];
-    $output[] = array_chunk($array[2], 9)[$m];
+
+    for ($n = 0; $n < 3; $n++) {
+        
+        $output[] = array_chunk($array[$n], 9)[$m];
+    }
 }
 
 
@@ -40,6 +42,5 @@ foreach ($output as &$values) {
 
 $puzzle = new Xeeeveee\Sudoku\Puzzle($output);
 $puzzle->solve();
-
 
 echo $puzzle->getSolution() === $output ? true : false;
