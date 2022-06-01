@@ -149,6 +149,12 @@ check.addEventListener('click', () => {
 })
 
 
+newgame.addEventListener('click', () => {
+    
+    location.reload();
+})
+
+
 function hide() {
 
     // // Hide cell and box
@@ -256,7 +262,7 @@ function setBoxAnimation(index) {
 
 
 function showMistakes() {
-    
+
     [...cells].forEach(cell => {
 
         cell.textContent === '' 
