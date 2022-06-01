@@ -4,11 +4,11 @@ require_once "../vendor/autoload.php";
 require_once('render.php');
 
 $template = new Xeeeveee\Sudoku\Puzzle();
-$template->generatePuzzle();
+$template->generatePuzzle(28);
 $template = $template->getPuzzle();
 
 
-// For easier use
+// For easier using
 $matrix = [];
 
 foreach ($template as $value) {

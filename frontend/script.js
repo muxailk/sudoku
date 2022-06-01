@@ -120,15 +120,25 @@ check.addEventListener('click', function() {
     }
 
     // Send data
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "check.php");
-    xhr.send(JSON.stringify(output));
+    // let xhr = new XMLHttpRequest();
+    // xhr.open("POST", "check.php");
+    // xhr.send(JSON.stringify(output));
 
-    xhr.onload = () => {
+    // xhr.onload = () => {
         
-        console.log(xhr.response)
-    }
+    //     console.log(xhr.response)
+    // }
 
+    fetch(
+        'check.php',
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(output)
+        }
+    ).then(resp => resp.text()).then(resp => {
+        if (!resp) showMistakes()
+    })
 })
 
 
@@ -236,3 +246,8 @@ function setBoxAnimation(index) {
         }, 120 * m + 500);
     }
 } 
+
+
+function showMistakes() {
+    console.log('errer')
+}

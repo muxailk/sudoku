@@ -4,7 +4,6 @@ require_once "../vendor/autoload.php";
 
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON);
-
 $array = $output = [];
 
 // Sorting array
@@ -30,7 +29,6 @@ for ($m = 0; $m < 3; $m++) {
 
 
 // Replace "" with 0
-
 foreach ($output as &$values) {
 
     foreach ($values as &$value) {
@@ -41,6 +39,7 @@ foreach ($output as &$values) {
 
 
 $puzzle = new Xeeeveee\Sudoku\Puzzle($output);
-
 $puzzle->solve();
-print_r($output);
+
+
+echo $puzzle->getSolution() === $output ? true : false;
