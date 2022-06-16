@@ -27,12 +27,12 @@ foreach ($template as $value) {
     <link rel="stylesheet" href="/frontend/style.css">
 
     <?php
-
-    // if (isset($_COOKIE['theme']) && $_COOKIE['theme'] == "dark") {
-    //     echo "<link rel='stylesheet' href='/frontend/dark.css'>";
-    // } else {
+   
+    if (isset($_GET['theme']) && $_GET['theme'] == "dark") {
+        echo "<link rel='stylesheet' href='/frontend/dark.css'>";
+    } else {
         echo "<link rel='stylesheet' href='/frontend/default.css'>";
-    // }
+    }
 
     ?>
 
