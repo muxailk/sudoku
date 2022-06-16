@@ -8,4 +8,4 @@
 ### Client fills in the puzzle and it is sent to server for validation 
 ### On server new puzzle is generating with the client's puzzle 
 ### Client gets response and cells are painted in corresponding color 
-![image](https://user-images.githubusercontent.com/105970406/174115259-15aa1b8a-b912-4b18-9896-084a18327546.png)
+![image](https://user-images.githubusercontent.com/105970406/174116298-aa2e6ba8-45a4-4c40-bd7f-30d4d062ec69.png)
