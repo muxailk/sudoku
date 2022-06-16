@@ -9,3 +9,5 @@
 ### On server new puzzle is generating with the client's puzzle 
 ### Client gets response and cells are painted in corresponding color 
 ![image](https://user-images.githubusercontent.com/105970406/174116298-aa2e6ba8-45a4-4c40-bd7f-30d4d062ec69.png)
+With theme=dark as query parameter
+![image](https://user-images.githubusercontent.com/105970406/174118647-8df4ce79-6545-4867-b5b6-b4cf77fb6db4.png)
