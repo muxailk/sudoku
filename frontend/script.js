@@ -121,6 +121,8 @@ check.addEventListener('click', () => {
         output.push(arr)
     }
 
+    console.log(output)
+
     // Send data
     // let xhr = new XMLHttpRequest();
     // xhr.open("POST", "check.php");
@@ -132,7 +134,7 @@ check.addEventListener('click', () => {
     // }
 
     fetch(
-        'check.php',
+        '/backend/check.php',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -143,7 +145,7 @@ check.addEventListener('click', () => {
             showMistakes()
         } else {
             showCorrect()
-            selectedCell.classList.remove('selected')
+            if (selectedCell) selectedCell.classList.remove('selected')
         }
     })
 })

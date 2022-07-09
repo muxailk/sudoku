@@ -1,7 +1,7 @@
 <?php
 
-require_once "../vendor/autoload.php";
-require_once('render.php');
+require_once "./vendor/autoload.php";
+require_once('./backend/render.php');
 
 $template = new Xeeeveee\Sudoku\Puzzle();
 $template->generatePuzzle(28);
@@ -24,19 +24,19 @@ foreach ($template as $value) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/frontend/style.css">
+    <link rel="stylesheet" href="./frontend/style.css">
 
     <?php
    
     if (isset($_GET['theme']) && $_GET['theme'] == "dark") {
-        echo "<link rel='stylesheet' href='/frontend/dark.css'>";
+        echo "<link rel='stylesheet' href='./frontend/dark.css'>";
     } else {
-        echo "<link rel='stylesheet' href='/frontend/default.css'>";
+        echo "<link rel='stylesheet' href='./frontend/default.css'>";
     }
 
     ?>
 
-    <link rel="icon" href="/frontend/favicon-32x32.png" type="image/x-icon">
+    <link rel="icon" href="./frontend/favicon-32x32.png" type="image/x-icon">
     <title>Sudoku Online</title>
 </head>
 
@@ -56,7 +56,7 @@ foreach ($template as $value) {
             </div>
         </div>
     </main>
-    <script src="/frontend/script.js"></script>
+    <script src="./frontend/script.js"></script>
 </body>
 
 </html>
